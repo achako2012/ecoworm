@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
         items: 2,
         slideBy: 'page',
         nav: false,    
-        autoplay: false,
+        autoplay: true,
         speed: 400,
         autoplayButtonOutput: false,
         mouseDrag: true,
