@@ -111,7 +111,8 @@ function forms() {
     };
 
     forms.forEach(item => {
-        postData(item);
+         postData(item);
+
     });
 
     function confirmValidation() {
@@ -186,12 +187,15 @@ function forms() {
 
                 request.addEventListener('load', () => {
                     if (request.status === 200) {
-                        console.log(request.response);
+                        //console.log(request.response);
                         showThanksModal(message.success);
                         form.reset();
                         statusMessage.remove();
                     } else {
-                        showThanksModal(message.failure);
+                       // showThanksModal(message.failure);
+                        showThanksModal(message.success);
+                        form.reset();
+                        statusMessage.remove();
                     }
                 });
             }
