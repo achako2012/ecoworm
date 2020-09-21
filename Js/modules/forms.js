@@ -1,3 +1,5 @@
+import {openModal, closeModal} from "./modal"
+
 function forms() {
 
     // Forms
@@ -15,11 +17,12 @@ function forms() {
         failure: 'что то пошло не так...',
     };
 
+    //Add Event to each form
     forms.forEach(item => {
-         postData(item);
-
+        postData(item);
     });
 
+    //function for check values in inputs
     function confirmValidation() {
         if (nameInput.hasAttribute('data-valid') && phoneInput.hasAttribute('data-valid')) {
             btn.classList.remove('btn__disabled');
@@ -29,6 +32,16 @@ function forms() {
             btn.classList.add('btn__disabled');
         }
     }
+
+    //Function for reset values in forms
+    function resetForms(elem) {
+        elem.reset();
+        phoneInput.removeAttribute("data-valid");
+        nameInput.removeAttribute("data-valid");
+        confirmValidation();
+    }
+
+    //event 'Input' reflect with any changes
 
     nameInput.addEventListener('input', () => {
         if (!nameInput.value.match(/^[a-zA-Zа-яёА-ЯЁїЇіІ'Єє]+$/u)) {
@@ -58,19 +71,17 @@ function forms() {
         }
     });
 
-
+    
     function postData(form) {
-        form.addEventListener('click', (e) => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
-
             if (e.target.nodeName === "A") {
-
                 const statusMessage = document.createElement('img');
                 statusMessage.src = message.loading;
                 statusMessage.textContent = message.loading;
                 statusMessage.style.cssText = `
               display: block;
-              margin: 0 auto; 
+              margin: 0 auto;
               `;
 
                 form.insertAdjacentElement('afterend', statusMessage);
@@ -92,14 +103,12 @@ function forms() {
 
                 request.addEventListener('load', () => {
                     if (request.status === 200) {
-                        //console.log(request.response);
                         showThanksModal(message.success);
-                        form.reset();
+                        resetForms(form);
                         statusMessage.remove();
                     } else {
-                       // showThanksModal(message.failure);
-                        showThanksModal(message.success);
-                        form.reset();
+                        showThanksModal(message.failure);
+                        resetForms(form);
                         statusMessage.remove();
                     }
                 });
@@ -110,8 +119,9 @@ function forms() {
     function showThanksModal(message) {
         const prevModalDialog = document.querySelector('.modal__dialog');
 
+        confirmValidation()
         prevModalDialog.classList.add('hide');
-        openModal();
+        openModal;
 
         const thanksModal = document.createElement('div');
         thanksModal.classList.add('modal__dialog');
@@ -127,7 +137,7 @@ function forms() {
             thanksModal.remove();
             prevModalDialog.classList.add('show');
             prevModalDialog.classList.remove('hide');
-            closeModal();
+            closeModal;
         }, 4000);
     }
 
@@ -136,4 +146,4 @@ function forms() {
         .then(json => console.log(json));
 }
 
-module.exports = forms;
+export default forms;

@@ -1,9 +1,8 @@
 import { tns } from "tiny-slider/src/tiny-slider"
+import forms from "./modules/forms"
+import modal from "./modules/modal"
 
 window.addEventListener('DOMContentLoaded', () => {
-
-    const forms = require ('./modules/forms');
-    const modal = require('./modules/modal');
 
     forms();
     modal();

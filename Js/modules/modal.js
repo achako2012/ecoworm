@@ -1,4 +1,5 @@
- function modal() {
+
+function modal() {
 
        //Modal 
 
@@ -16,6 +17,7 @@
 
        modalTrigger.forEach(btn => {
              btn.addEventListener('click', openModal);
+
        });
 
        function closeModal() {
@@ -39,4 +41,4 @@
        });
  }
 
- module.exports = modal;
+export default modal;

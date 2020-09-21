@@ -90,8 +90,13 @@
 /*!*****************************!*\
   !*** ./js/modules/forms.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
+
 
 function forms() {
 
@@ -110,11 +115,12 @@ function forms() {
         failure: 'что то пошло не так...',
     };
 
+    //Add Event to each form
     forms.forEach(item => {
-         postData(item);
-
+        postData(item);
     });
 
+    //function for check values in inputs
     function confirmValidation() {
         if (nameInput.hasAttribute('data-valid') && phoneInput.hasAttribute('data-valid')) {
             btn.classList.remove('btn__disabled');
@@ -124,6 +130,16 @@ function forms() {
             btn.classList.add('btn__disabled');
         }
     }
+
+    //Function for reset values in forms
+    function resetForms(elem) {
+        elem.reset();
+        phoneInput.removeAttribute("data-valid");
+        nameInput.removeAttribute("data-valid");
+        confirmValidation();
+    }
+
+    //event 'Input' reflect with any changes
 
     nameInput.addEventListener('input', () => {
         if (!nameInput.value.match(/^[a-zA-Zа-яёА-ЯЁїЇіІ'Єє]+$/u)) {
@@ -153,19 +169,17 @@ function forms() {
         }
     });
 
-
+    
     function postData(form) {
-        form.addEventListener('click', (e) => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
-
             if (e.target.nodeName === "A") {
-
                 const statusMessage = document.createElement('img');
                 statusMessage.src = message.loading;
                 statusMessage.textContent = message.loading;
                 statusMessage.style.cssText = `
               display: block;
-              margin: 0 auto; 
+              margin: 0 auto;
               `;
 
                 form.insertAdjacentElement('afterend', statusMessage);
@@ -187,14 +201,12 @@ function forms() {
 
                 request.addEventListener('load', () => {
                     if (request.status === 200) {
-                        //console.log(request.response);
                         showThanksModal(message.success);
-                        form.reset();
+                        resetForms(form);
                         statusMessage.remove();
                     } else {
-                       // showThanksModal(message.failure);
-                        showThanksModal(message.success);
-                        form.reset();
+                        showThanksModal(message.failure);
+                        resetForms(form);
                         statusMessage.remove();
                     }
                 });
@@ -205,8 +217,9 @@ function forms() {
     function showThanksModal(message) {
         const prevModalDialog = document.querySelector('.modal__dialog');
 
+        confirmValidation()
         prevModalDialog.classList.add('hide');
-        openModal();
+        _modal__WEBPACK_IMPORTED_MODULE_0__["openModal"];
 
         const thanksModal = document.createElement('div');
         thanksModal.classList.add('modal__dialog');
@@ -222,7 +235,7 @@ function forms() {
             thanksModal.remove();
             prevModalDialog.classList.add('show');
             prevModalDialog.classList.remove('hide');
-            closeModal();
+            _modal__WEBPACK_IMPORTED_MODULE_0__["closeModal"];
         }, 4000);
     }
 
@@ -231,7 +244,7 @@ function forms() {
         .then(json => console.log(json));
 }
 
-module.exports = forms;
+/* harmony default export */ __webpack_exports__["default"] = (forms);
 
 /***/ }),
 
@@ -239,10 +252,13 @@ module.exports = forms;
 /*!*****************************!*\
   !*** ./js/modules/modal.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
- function modal() {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+function modal() {
 
        //Modal 
 
@@ -260,6 +276,7 @@ module.exports = forms;
 
        modalTrigger.forEach(btn => {
              btn.addEventListener('click', openModal);
+
        });
 
        function closeModal() {
@@ -283,7 +300,7 @@ module.exports = forms;
        });
  }
 
- module.exports = modal;
+/* harmony default export */ __webpack_exports__["default"] = (modal);
 
 /***/ }),
 
@@ -297,15 +314,16 @@ module.exports = forms;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tiny-slider/src/tiny-slider */ "./node_modules/tiny-slider/src/tiny-slider.js");
+/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/forms */ "./js/modules/forms.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ "./js/modules/modal.js");
+
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    const forms = __webpack_require__ (/*! ./modules/forms */ "./js/modules/forms.js");
-    const modal = __webpack_require__(/*! ./modules/modal */ "./js/modules/modal.js");
-
-    forms();
-    modal();
+    Object(_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
     Object(tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["tns"])({
         container: '.my-slider',
