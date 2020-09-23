@@ -1,0 +1,24 @@
+{
+  "name": "ecoworm",
+  "version": "1.0.0",
+  "description": "ecoworm project",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achako2012/ecoworm.git"
+  },
+  "author": "Alexander and Bigdinka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/achako2012/ecoworm/issues"
+  },
+  "homepage": "https://github.com/achako2012/ecoworm#readme"
+}

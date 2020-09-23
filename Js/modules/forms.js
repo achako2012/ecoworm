@@ -71,7 +71,7 @@ function forms() {
         }
     });
 
-    
+
     function postData(form) {
         btn.addEventListener('click', (e) => {
             e.preventDefault();

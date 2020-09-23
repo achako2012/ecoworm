@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="09c39ea3-0742-4401-9415-76952f3c99b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/Js/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Js/bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Js/bundle.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Js/modules/forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/Js/modules/forms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Js/modules/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/Js/modules/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +55,8 @@
       <updated>1600340217506</updated>
       <workItem from="1600340219998" duration="2852000" />
       <workItem from="1600408260269" duration="1734000" />
-      <workItem from="1600665006737" duration="1841000" />
+      <workItem from="1600665006737" duration="2184000" />
+      <workItem from="1600843019003" duration="1097000" />
     </task>
     <servers />
   </component>
@@ -85,9 +84,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="584" y="78" width="751" height="924" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1600342405061" />
-    <state x="541" y="252" key="run.anything.popup" timestamp="1600342447271">
-      <screen x="0" y="25" width="1920" height="972" />
+    <state x="541" y="252" key="run.anything.popup" timestamp="1600845348133">
+      <screen x="0" y="25" width="1920" height="964" />
     </state>
+    <state x="541" y="252" key="run.anything.popup/0.25.1920.964@0.25.1920.964" timestamp="1600845348133" />
     <state x="541" y="252" key="run.anything.popup/0.25.1920.972@0.25.1920.972" timestamp="1600342447271" />
   </component>
 </project>
